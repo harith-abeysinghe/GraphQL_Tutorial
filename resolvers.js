@@ -36,4 +36,10 @@ export const resolvers = {
 			return db.authors.find((author) => author.id === review.author_id);
 		},
 	},
+
+	Author: {
+		reviews(author) {
+			return db.reviews.filter((review) => review.author_id === author.id);
+		},
+	},
 };
