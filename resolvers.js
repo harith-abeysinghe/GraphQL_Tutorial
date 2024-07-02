@@ -42,4 +42,34 @@ export const resolvers = {
 			return db.reviews.filter((review) => review.author_id === author.id);
 		},
 	},
+
+	Mutation: {
+		deleteGame(_, { id }) {
+			const gameIndex = db.games.findIndex((game) => game.id === id);
+			if (gameIndex === -1) {
+				throw new Error("Game not found");
+			}
+			const deletedGame = db.games.splice(gameIndex, 1)[0];
+			return deletedGame;
+		},
+
+		addGame(_, { game }) {
+			const newGame = {
+				id: String(db.games.length + 1),
+				...game,
+			};
+			db.games.push(newGame);
+			return newGame;
+		},
+
+		updateGame(_, { id, game }) {
+			const gameIndex = db.games.findIndex((game) => game.id === id);
+			if (gameIndex === -1) {
+				throw new Error("Game not found");
+			}
+			const updatedGame = { ...db.games[gameIndex], ...game };
+			db.games[gameIndex] = updatedGame;
+			return updatedGame;
+		},
+	},
 };
