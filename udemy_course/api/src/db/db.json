@@ -1,0 +1,16 @@
+{
+	"user": [
+		{
+			"id": 1,
+			"name": "John Doe"
+		}
+	],
+	"pet": [
+		{
+			"id": 1,
+			"createdAt": 1620000000000,
+			"name": "Fluffy",
+			"type": "dog"
+		}
+	]
+}

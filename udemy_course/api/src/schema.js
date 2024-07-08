@@ -4,11 +4,15 @@ const typeDefs = gql`
 	type User {
 		id: ID
 		username: String
-		friends: [User]
+	}
+	type Pet {
+		id: ID!
+		createdAt: String!
+		name: String!
 	}
 
 	type Query {
-		me: User
+		pets: [Pet]
 	}
 `;
 
