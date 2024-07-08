@@ -1,3 +1,4 @@
 ./node_modules
 /node_modules
 /.vscode
+/udemy_course/node_modules
